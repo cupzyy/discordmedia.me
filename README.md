@@ -1,6 +1,12 @@
 # discordmedia.me
 
-**Discordmedia.me** is a website that allows users to upload videos and generate a link that can be shared on Discord with full embed support. Perfect for sharing media directly without limitations!
+<p align="left">
+  <img height="350px" src="https://i.imgur.com/tt67SfT.png" />
+</p>
+
+**Discordmedia.me** is a website that allows users to upload videos and generate a link that can be shared on Discord with full embed support. It uploads the file to FileDitch and generates urls with a unique id that makes the video viewable on Discord.
+
+Unfortunately, FileDitch stopped supporting direct links (for good reasons), and this project was completely dependent on using FileDitch, so this is now closed down.
 
 ## Features
 - Upload videos quickly and easily.
