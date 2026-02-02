@@ -2,14 +2,15 @@ import axios from "axios";
 
 export async function uploadFile(
     file: File,
-    onProgress?: (progress: number) => void
+    onProgress?: (progress: number) => void,
 ) {
     let url;
     let uploadData = new FormData();
-    uploadData.append("files[]", file);
+    uploadData.append("fileToUpload", file);
+    uploadData.append("reqtype", "fileupload");
 
     await axios
-        .post("https://up1.fileditch.com/upload.php", uploadData, {
+        .post("/api/uploadVideo", uploadData, {
             onUploadProgress: (progressEvent) => {
                 if (onProgress) {
                     if (progressEvent.bytes) {
@@ -17,8 +18,8 @@ export async function uploadFile(
                             Math.round(
                                 (progressEvent.loaded /
                                     (progressEvent.total || 0)) *
-                                    100
-                            )
+                                    100,
+                            ),
                         );
                     }
                 }
@@ -28,7 +29,7 @@ export async function uploadFile(
             if (onProgress) {
                 onProgress(100);
             }
-            url = response?.["data"]?.["files"]?.[0]?.["url"];
+            url = response.data.url;
         });
     return url;
 }

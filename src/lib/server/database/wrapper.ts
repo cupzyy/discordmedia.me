@@ -5,7 +5,7 @@ import { urlTable } from "./schema";
 export async function addUrl(
     id: string,
     videoUrl: string,
-    thumbnailUrl?: string
+    thumbnailUrl?: string,
 ) {
     db.insert(urlTable)
         .values({ id: id, video_url: videoUrl, thumbnail_url: thumbnailUrl })
